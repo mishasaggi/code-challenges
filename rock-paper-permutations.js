@@ -12,6 +12,7 @@
   for (var i = 0; i < roundCount; i++) {
     //create a temp array to save concatenations in the intermediate step
     var temp = [];
+    console.log("temp is: ", temp);
     for(var j = 0; j < solution.length; j++){
       for(var p = 0; p < 3; p++){
         console.log("temp before concat", temp)
@@ -21,10 +22,12 @@
       }
     }
     //replace the solution with the latest concatenations
+    console.log("replacing solution");
     solution = temp;
   }
   return solution;
 }
+
 
 
 //test run
