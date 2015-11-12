@@ -6,10 +6,10 @@ var LinkedList = function(){
 
   LinkedList.prototype.addToTail = function(value){
     if(this.head === null && this.tail === null) {
-      this.tail = Node(value);
+      this.tail = this.makeNode(value);
       this.head = this.tail;
     } else {
-      this.tail.next = Node(value);
+      this.tail.next = this.makeNode(value);
       this.tail = this.tail.next;
     }
   };
@@ -35,12 +35,12 @@ var LinkedList = function(){
      }
      return false;
   };
+  
+  LinkedList.prototype.makeNode = function(value){
+    var node = {};
+    node.value = value;
+    node.next = null;
+    return node;
+  };
 
-var Node = function(value){
-  var node = {};
 
-  node.value = value;
-  node.next = null;
-
-  return node;
-};
