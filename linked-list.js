@@ -1,36 +1,37 @@
 
 var LinkedList = function(){
-  this.list = {};
-  this.list.head = null;
-  this.list.tail = null;
-
-  return list;
+  this.head = null;
+  this.tail = null;
 };
 
   LinkedList.prototype.addToTail = function(value){
-    if(this.list.head === null && this.list.tail === null) {
-      this.list.tail = Node(value);
-      this.list.head = this.list.tail;
+    if(this.head === null && this.tail === null) {
+      this.tail = Node(value);
+      this.head = this.tail;
     } else {
-      this.list.tail.next = Node(value);
-      this.list.tail = this.list.tail.next;
+      this.tail.next = Node(value);
+      this.tail = this.tail.next;
     }
   };
 
   LinkedList.prototype.removeHead = function(){
-    var result = this.list.head.value;
-    var temp = this.list.head;
-    delete this.list.head;
-    this.list.head = temp.next;
+    if(this.head === this.tail){
+      this.head = this.tail = null;
+      return;
+    }
+    var result = this.head.value;
+    var temp = this.head;
+    delete this.head;
+    this.head = temp.next;
     return result;
   };
 
   LinkedList.prototype.contains = function(target){
-    this.list.search = list.head;
-    if(this.list.tail.value === target) return true;
-    while (this.list.search.next !== null) {
-      if(this.list.search.value === target) return true;
-      this.list.search = this.list.search.next;
+    this.search = this.head;
+    if(this.tail.value === target) return true;
+    while (this.search.next !== null) {
+      if(this.search.value === target) return true;
+      this.search = this.search.next;
      }
      return false;
   };
