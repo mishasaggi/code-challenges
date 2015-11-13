@@ -35,6 +35,7 @@ var Queue = function() {
     for(var i = 0; i < outLength; i++) {
       this.inbox.push(this.outbox.pop());
     }
+    return result;
   };
 
   this.size = function(){
