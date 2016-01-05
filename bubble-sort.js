@@ -10,17 +10,20 @@ Implement a function that takes an array and sorts it using this technique.
 */
 
 function bubbleSort (input) {
-//can be more efficient by only running the inner loop until all sorted
-  for(var j=0; j<input.length; j++) {
-    for(var i=0; i<input.length-1; i++) {
-      if(input[i]>input[i+1]){
-        var temp;
+  var swapped = true; //flag to detect the input is finished sorting
+  var temp = 0;
+  while(swapped) {
+    swapped = false;
+    for(var i = 0; i < input.length-1; i++) {
+      if(input[i] > input[i+1]) {
         temp = input[i+1];
-        input[i+1]=input[i];
-        input[i]=temp;
+        input[i+1] = input[i];
+        input[i] = temp;
+        swapped = true;
       }
     }
   }
+  
   return input;
-}
+};
 
